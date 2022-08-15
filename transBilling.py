@@ -1,8 +1,14 @@
 import openpyxl
 import csv
 
-# to fill in for "Date" portion of excel file 
 from datetime import date 
+
+# TODO: 
+#    Rest of cells 
+#    Functionality to add more than one billing sheet 
+#    Store all items in array, add to list, prompt user for another row to be added
+#    Add functionality to read over prior file so new one created each day. Solution: Add date to end of file so they never look the same 
+#    Functionaltiy to read over a months worth of files and give monthy look 
 
 # if there is another row to be added for new billing statement, prompt user "Do you need to file another: " 
 # if user input = no, write file 
