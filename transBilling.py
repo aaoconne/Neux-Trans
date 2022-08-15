@@ -36,14 +36,13 @@ class Client:
           
      def clientCheck(self):
           if self._client != "":
-               print("Does the client look correct: " + self.client)
-               input(clientString = "y" or "n")
-          if clientString == "y":
+               print("Does the client look correct: " + self._client)
+               input("y or n: ")
+          if input == "y":
                return self._client 
-               print(self._client)
           else:
                self._client == client 
-               print(self.client)
+               print(self._client)
 
 
 # Office()
@@ -58,14 +57,29 @@ class Office:
                return self._office
           else:
                print("If NA: Y Or N") 
-               str(input(noOfficeString = "Y OR N: "))
-          if noOfficeString == "Y":
-               noOffice = True 
+               input("y or n: ")
+          if input == "y":
                self._office = "NA"
                return self._office 
           else:
                self._office = office
                return self._office 
+          
+class Name:
+     def __init__(self, name = input("Name: ")):
+          self._name = name 
+          
+     def nameCheck(self):
+          if self._name != "":
+               print("Does this name look correct? " + self._name)
+               input("y or n: ")
+               if input == "y":
+                    return self._name 
+               else: 
+                    self._name = name 
+                    return self._name 
+                    
+                    
 
 # driver code 
 today = date.today()
@@ -79,13 +93,22 @@ _translator.transCheck()
 # client object 
 clientString = str 
 client = Client()
+client.clientCheck()
 
 # boolean check to see if office relevant or not 
 # string to make sure user input looks as should 
 # office obj 
-noOffice = False  
+officeBool = False  
 noOfficeString = str 
 office = Office()
+office.officeCheck()
+
+# name obj 
+# string to make sure name looks okay  
+nameStr = str 
+nameBool = False 
+name = Name()
+name.nameCheck()
 
 
 # ''' # storing input 
@@ -111,6 +134,6 @@ with open('Billing.csv', 'w', newline ="") as file:
          
     # TODO: will go in processFile.py 
     if _translator != "" :
-         myFile.writerow([today,_translator._trans,client._client,office._office])
+         myFile.writerow([today,_translator._trans,client._client,office._office,name._name])
     else:
          print("Please fill in who the translator was for client: ")
