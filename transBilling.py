@@ -63,18 +63,26 @@ class Office:
 
 # driver code 
 today = date.today()
+
+# _translator object
+# check to make sure input != ""
 _translator = Translator()
 _translator.transCheck()
+
+# string for if client looks correctly
+# client object 
 clientString = str 
 client = Client()
+
+# boolean check to see if office relevant or not 
+# string to make sure user input looks as should 
+# office obj 
 noOffice = False  
 noOfficeString = str 
 office = Office()
 
 
 # ''' # storing input 
-# interprettedFor()
-# office = input("Office: ")
 # name = str(input("Name: "))
 # address = input("Address: ")
 # appTime = input("Appointment Time: ")
