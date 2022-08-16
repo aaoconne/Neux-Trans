@@ -9,13 +9,13 @@ class Client:
           self._client = client
           
      def clientCheck(self):
-          if self._client != "":
+        if self._client != "":
                print("Does the client look correct: " + self._client)
                input("y or n: ")
                return self._client 
-          if input == "y":
-               return self._client 
-          else:
-               client  = input("Interpreted For: ")
-               self._client = client
-               return self._client 
+        if input == "y":
+            return self._client 
+        else:
+            client  = input("Interpreted For: ")
+            self._client = client
+            return self._client 
