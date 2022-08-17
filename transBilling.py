@@ -1,4 +1,4 @@
-import openpyxl
+import array as arr 
 import csv
 from _translator import Translator 
 from client import Client  
@@ -6,15 +6,17 @@ from office import Office
 from name import Name 
 from datetime import date 
 
-# TODO: 
-#    Rest of cells 
-#    Functionality to add more than one billing sheet 
-#    Store all items in array, add to list, prompt user for another row to be added
-#    Add functionality to read over prior file so new one created each day. Solution: Add date to end of file so they never look the same 
-#    Functionaltiy to read over a months worth of files and give monthy look 
-# if there is another row to be added for new billing statement, prompt user "Do you need to file another: " 
-# if user input = no, write file 
-# newRow = False 
+#   TODO: 
+#	Rest of cells 
+#	Array of everything would be faster.
+#	Associate [index] with column. 		
+#	Functionality to add more than one billing sheet 
+#    	Store all items in array, add to list, prompt user for another row to be added
+#    	Add functionality to read over prior file so new one created each day. Solution: Add date to end of file so they never look the same 
+#    	Functionaltiy to read over a months worth of files and give monthy look 
+# 	if there is another row to be added for new billing statement, prompt user "Do you need to file another: " 
+# 	if user input = no, write file 
+# 	newRow = False 
 
 # address = input("Address: ")
 # appTime = input("Appointment Time: ")
@@ -31,30 +33,28 @@ today = date.today()
 # _translator object
 # check to make sure input != ""
 # creation of _translator object 
-_translator = Translator()
-# instance of _translator object
+# call to transCheck() instance method
+_translator = Translator() 
 _translator.transCheck()
 
-# string for if client looks correctly
+
 # client object 
 # clientString = str 
+# call to clientCheck() instance method 
 client = Client()
 client.clientCheck()
 
-# boolean check to see if office relevant or not 
 # string to make sure user input looks as should 
 # office obj 
-officeBool = False  
-noOfficeString = str 
 office = Office()
 office.officeCheck()
 
 # name obj 
 # string to make sure name looks okay  
-nameStr = str 
-nameBool = False 
 name = Name()
 name.nameCheck()
+
+	
      
 # opening or creating the file 
 with open('Billing.csv', 'w', newline ="") as file:
