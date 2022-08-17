@@ -3,10 +3,10 @@
 # conditions for Translator  
 
 class Translator:
-     def __init__(self, _translator = str(input("Translator: "))):
+    def __init__(self, _translator = str(input("Translator: "))):
           self._trans = _translator 
      
-     def transCheck(self):
+    def transCheck(self):
         if self._trans != "":
             print("Is the Translator correct?: " + self._trans)
             input("y or n: ")
@@ -17,4 +17,17 @@ class Translator:
             _translator = str(input("Translator: "))
             self._trans = _translator
             return self._trans 
+
+# _translatorCell = list of multiple rows from user 
+# append() to add the next one to the list 
+_translatorCell = []        
+for _translator in Translator():
+	if _translator != "":
+        	_transCell = _translator
+_translatorCell.append(_transCell)
+
+
+
+# define infinte loop when translator input > 1 
+
             
