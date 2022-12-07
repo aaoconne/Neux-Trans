@@ -9,8 +9,9 @@ class Name:
           
     def nameCheck(self):
           if self._name != "":
-            print("Does this name look correct? " + self._name)
-            input("y or n: ")
+        #TODO: check should be done after row data filled.
+            # print("Does this name look correct? " + self._name)
+            # input("y or n: ")
             if input == "y":
                 return self._name 
             else: 

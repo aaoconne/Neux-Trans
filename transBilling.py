@@ -4,6 +4,8 @@ from _translator import Translator
 from client import Client  
 from office import Office 
 from name import Name 
+from address import Address 
+from appointmentTime import AppointmentTime
 from datetime import date 
 
 #   TODO: 
@@ -17,56 +19,49 @@ from datetime import date
 # 	if there is another row to be added for new billing statement, prompt user "Do you need to file another: " 
 # 	if user input = no, write file 
 # 	newRow = False 
-
-# address = input("Address: ")
-# appTime = input("Appointment Time: ")
-# arrivalTime = input("Arrival Time: ")
-# empArrivalTime = input("Arrival Time Interpreter: ")
-# clientArrivalaTime = input("Arrival Time of Patient: ")
-# endTime = input("End Time: ")
-# obj 
-# servicesProvided = str(input("Services Provided: " + typeOfService)) 
-
+ 
 # driver code 
-today = date.today()
+currentDate = date.today()
 
-# _translator object
-# check to make sure input != ""
-# creation of _translator object 
-# call to transCheck() instance method
+# _translator obj 
 _translator = Translator() 
 _translator.transCheck()
-
-
-# client object 
-# clientString = str 
-# call to clientCheck() instance method 
+ 
+ # client obj 
 client = Client()
 client.clientCheck()
 
-# string to make sure user input looks as should 
-# office obj 
 office = Office()
 office.officeCheck()
 
 # name obj 
-# string to make sure name looks okay  
+# can probably be discarded but for right now, think of as person providing treatment 
 name = Name()
 name.nameCheck()
 
-	
-     
+address = Address()
+address.addressCheck()
+
+apptTime = AppointmentTime()
+apptTime.apptTimeCheck() 
+
+
+
 # opening or creating the file 
-with open('Billing.csv', 'w', newline ="") as file:
-    myFile = csv.writer(file)
+def main(): 
+     with open('Billing.csv', 'w', newline ="") as file:
+          myFile = csv.writer(file)
     
-    # writing the column headers. different headers on sheet 
-    # "Services Provided" included: Medical, Legal, Translation
-    myFile.writerow(["Date","Translator","Interpreted For","Office","Name","Address","Appointment Time","Arrival Time Interpreter",  
+          # writing the column headers. different headers on sheet 
+          # "Services Provided" included: Medical, Legal, Translation
+          myFile.writerow(["Date","Translator","Interpreted For","Office","Name","Address","Appointment Time","Arrival Time Interpreter",  
                      "Arrival Time Patient","End Time","Services Provided","Total Miles","Parking Garage","Paid","Billed","Client"])
          
-    # TODO: will go in processFile.py 
-    if _translator != "" :
-         myFile.writerow([today,_translator._trans,client._client,office._office,name._name])
-    else:
-         print("Please fill in who the translator was for client: ")
+          # TODO: will go in processFile.py 
+          if _translator != "" :
+               myFile.writerow([currentDate, _translator._trans ,client._client, office._office, name._name, address._address, apptTime._apptTime])
+          else:
+               print("Please fill in who the translator was for client: ")
+               
+if __name__ == "__main__":
+     main() 

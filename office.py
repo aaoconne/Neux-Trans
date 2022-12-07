@@ -9,9 +9,9 @@ class Office:
      def officeCheck(self):
           if self._office != "":
                return self._office
-          else:
-               print("If NA: Y Or N") 
-               input("y or n: ")
+          # else:
+          #      print("If NA: Y Or N") 
+          #      input("y or n: ")
           if input == "y":
                self._office = "NA"
                return self._office 
