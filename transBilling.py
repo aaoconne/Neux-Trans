@@ -20,6 +20,8 @@ from datetime import date
 # 	if user input = no, write file 
 # 	newRow = False 
  
+bMoreRecs = False  
+
 # driver code 
 currentDate = date.today()
 
@@ -57,11 +59,15 @@ def main():
           myFile.writerow(["Date","Translator","Interpreted For","Office","Name","Address","Appointment Time","Arrival Time Interpreter",  
                      "Arrival Time Patient","End Time","Services Provided","Total Miles","Parking Garage","Paid","Billed","Client"])
          
-          # TODO: will go in processFile.py 
-          if _translator != "" :
+          # TODO: change this to check for boolean  
+          #if _translator != "" :
+          while bMoreRecs: 
                myFile.writerow([currentDate, _translator._trans ,client._client, office._office, name._name, address._address, apptTime._apptTime])
-          else:
-               print("Please fill in who the translator was for client: ")
+               moreRecsStr = input("Would you like to bill another client? Y or N: ")
+               if moreRecsStr.contains("N" or "n"):
+                    break
+               else: 
+                    continue 
                
 if __name__ == "__main__":
      main() 
